@@ -60,32 +60,33 @@ body {
 	height: 52px;
 }
 #s50 {
-	margin-left: 32%;
+	margin-left: 31%;
 	margin-top: 34%;
 }
 #s100 {
-	margin-left: 49.2%;
+	margin-left: 50.2%;
 	margin-top: 34%;
 }
 #s250 {
-	margin-left: 32%;
+	margin-left: 31%;
 	margin-top: 41%;
 }
 #s1000 {
-	margin-left: 49.2%;
+	margin-left: 50.2%;
 	margin-top: 41%;
 }
 #s2500 {
-	margin-left: 32%;
+	margin-left: 31%;
 	margin-top: 48%;
 }
 #s10000 {
-	margin-left: 49.2%;
+	margin-left: 50.2%;
 	margin-top: 48%;
 }
 #help {
 	margin-left: 12%;
 }
+
 
 </style>
 
@@ -96,7 +97,6 @@ body {
 	var statusm = 0, status = 0;
 	var money = 1000;
 	var bett = 0;
-	money = localStorage.getItem('money');
 	console.log(num, numm);
 	function crashup(){
 		document.getElementById("money").innerHTML = money + " coins";
@@ -127,7 +127,6 @@ body {
 		bet.style.backgroundColor = "#C7C697";
 		bet.style.padding = "10px";
 		value.style.color = "#C7C7C7";
-		localStorage.setItem('money', money);
 
 		if (start >= 2) {
 			document.getElementById("bet").innerHTML = "PLACE BET";

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<style>
+body {
+	background-color: #1B1B1B;
+}
+#background {
+	background-color: #1B1B1B;
+	position: absolute;
+	height: 800px;
+	width: 80%;
+	margin-top: -10%;
+	margin-left: 9.5%;
+}
+#value {
+	font-size: 100px;
+	color: #C7C7C7;
+	position: absolute;
+	margin-left: 37%;
+	margin-top: 12%;
+}
+#money {
+	position: absolute;
+	font-size: 28px;
+	color: #C7C7C7;
+	position: absolute;
+	margin-left: 41.5%;
+	margin-top: 2%;
+}
+#sbet {
+	position: absolute;
+	font-size: 28px;
+	color: #C7C7C7;
+	position: absolute;
+	margin-left: 43.8%;
+	margin-top: 23%;
+}
+#bet {
+	background-color: #97C797;
+	position: absolute;
+	color: #1B1B1B;
+	font-size: 21px;
+	width: 150px;
+	height: 52px;
+	border-radius: 100px;
+	border:#1B1B1B solid 1px;
+	margin-left: 40.3%;
+	margin-top: 27%;
+}
+.button {
+	position: absolute;
+	background-color: #C7C7C7;
+	color: #1B1B1B;
+	font-size: 22px;
+	border-radius: 100px;
+	border:#C7C7C7 solid 1px;
+	width: 150px;
+	height: 52px;
+}
+#s50 {
+	margin-left: 32%;
+	margin-top: 34%;
+}
+#s100 {
+	margin-left: 49.2%;
+	margin-top: 34%;
+}
+#s250 {
+	margin-left: 32%;
+	margin-top: 41%;
+}
+#s1000 {
+	margin-left: 49.2%;
+	margin-top: 41%;
+}
+#s2500 {
+	margin-left: 32%;
+	margin-top: 48%;
+}
+#s10000 {
+	margin-left: 49.2%;
+	margin-top: 48%;
+}
+#help {
+	margin-left: 12%;
+}
+
+</style>
+
+<script>
+	
+	var num = 0,numm = 70;
+	var start = 0;
+	var statusm = 0, status = 0;
+	var money = 1000;
+	var bett = 0;
+	money = localStorage.getItem('money');
+	console.log(num, numm);
+	function crashup(){
+		document.getElementById("money").innerHTML = money + " coins";
+		document.getElementById("sbet").innerHTML = "Bet: " + bett;
+		if (start == 1){
+			numm++;
+			document.getElementById("value").innerHTML = num + "." + numm + "x";
+			if (numm >= 100) {
+				num++;
+				numm = 0;
+			}
+			if ((num == status)&&(numm == statusm)||(status < 1)) {
+				value.style.color = "#E13540";
+				start = 0;
+				num = 0, numm = 70;
+				bett = 0;
+				bet.style.backgroundColor = "#97C797";
+				document.getElementById("bet").innerHTML = "PLACE BET";
+				
+			}
+		}
+	}
+	function bets() {
+		document.getElementById("bet").innerHTML = "CASH OUT";
+		start++;
+		statusm = Math.floor(Math.random() * (90 - 1 + 1)) + 1;
+		status = Math.floor(Math.random() * (6 - 0 + 1)) + 0;
+		bet.style.backgroundColor = "#C7C697";
+		bet.style.padding = "10px";
+		value.style.color = "#C7C7C7";
+		localStorage.setItem('money', money);
+
+		if (start >= 2) {
+			document.getElementById("bet").innerHTML = "PLACE BET";
+			bet.style.backgroundColor = "#97C797";
+			if((numm <= 10)&&(bett >= 1)) {
+				money = money + bett * (numm * 0.1 + num);
+			} 
+			if((numm >= 10)&&(bett >= 1)){
+				money = money + bett * (numm * 0.01 + num);
+			}
+			bett = 0;
+			num = 0, numm = 70;
+			document.getElementById("value").innerHTML = num + "." + numm + "x"; 
+			start = 0;
+			
+		}
+		
+	}
+	function o50() {
+		if ((money >= 50)&&(start == 0)) {
+		 money = money - 50;
+		 bett = bett + 50;
+		}
+	}
+	function o100() {
+		if ((money >= 100)&&(start == 0)) {
+		 money = money - 100;
+		 bett = bett + 100;
+		}
+	}
+	function o250() {
+		if ((money >= 250)&&(start == 0)) {
+		 money = money - 250;
+		 bett = bett + 250;
+		}
+	}
+	function o1000() {
+		if ((money >= 1000)&&(start == 0)) {
+		 money = money - 1000;
+		 bett = bett + 1000;
+		}
+	}
+	function o2500() {
+		if ((money >= 2500)&&(start == 0)) {
+		 money = money - 2500;
+		 bett = bett + 2500;
+		}
+	}
+	function o10000() {
+		if ((money >= 10000)&&(start == 0)) {
+		 money = money - 10000;
+		 bett = bett + 10000;
+		}
+	}
+	function heh() {
+        if((money <= 50)&&(start == 0)) {
+            money = 1000;
+            money = localStorage.setItem('money', money);
+            money = localStorage.getItem('money');
+            alert('Done');
+        } else {
+            alert('Error');
+        }
+    }
+	setInterval(crashup, 35);
+</script>
+<div id="background"></div>
+
+<a id="value">0.70x</a>
+<a id="money">1000$</a>
+<a id="sbet">Bet: 0</a>
+<button id="bet" onclick="bets()">PLACE BET</button>
+
+<button id="s50" onclick="o50()" class="button">50</button>
+<button id="s100" onclick="o100()" class="button">100</button>
+<button id="s250" onclick="o250()" class="button">250</button>
+<button id="s1000" onclick="o1000()" class="button">1000</button>
+<button id="s2500" onclick="o2500()" class="button">2500</button>
+<button id="s10000" onclick="o10000()" class="button">10000</button>
+<button id="help"  onclick="heh()" class="button">Help</button>
+</body>
+</html>

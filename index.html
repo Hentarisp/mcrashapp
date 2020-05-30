@@ -178,9 +178,10 @@ body {
 	var bett = 0;
 	console.log(num, numm);
 	if(localStorage.getItem('money') == null) {
-		console.log('no save');	
+		console.log('no save!');	
 	} else {
-		console.log('done save');		
+		console.log('done save!');	
+		money = localStorage.getItem('money');
 	}
 	function crashup(){
 		document.getElementById("money").innerHTML = money + " coins";

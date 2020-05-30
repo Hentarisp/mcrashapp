@@ -228,6 +228,7 @@ body {
 		if (start >= 2) {
 			document.getElementById("bet").innerHTML = "PLACE BET";
 			bet.style.backgroundColor = "#97C797";
+			localStorage.setItem('money', money);
 			if((numm <= 10)&&(bett >= 1)) {
 				money = money + bett * (numm * 0.1 + num);
 			} 
@@ -246,40 +247,46 @@ body {
 		if ((money >= 50)&&(start == 0)) {
 		 money = money - 50;
 		 bett = bett + 50;
+		 localStorage.setItem('money', money);
 		}
 	}
 	function o100() {
 		if ((money >= 100)&&(start == 0)) {
 		 money = money - 100;
 		 bett = bett + 100;
+		 localStorage.setItem('money', money);
 		}
 	}
 	function o250() {
 		if ((money >= 250)&&(start == 0)) {
 		 money = money - 250;
 		 bett = bett + 250;
+		 localStorage.setItem('money', money);
 		}
 	}
 	function o1000() {
 		if ((money >= 1000)&&(start == 0)) {
 		 money = money - 1000;
 		 bett = bett + 1000;
+		 localStorage.setItem('money', money);
 		}
 	}
 	function o2500() {
 		if ((money >= 2500)&&(start == 0)) {
 		 money = money - 2500;
 		 bett = bett + 2500;
+		 localStorage.setItem('money', money);
 		}
 	}
 	function o10000() {
 		if ((money >= 10000)&&(start == 0)) {
 		 money = money - 10000;
 		 bett = bett + 10000;
+		 localStorage.setItem('money', money);
 		}
 	}
 	function heh() {
-        if((money <= 50)&&(start == 0)) {
+        if((money <= 50)&&(start == 0)&&(bett <= 0)) {
             money = 1000;
             money = localStorage.setItem('money', money);
             money = localStorage.getItem('money');

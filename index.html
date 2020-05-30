@@ -177,6 +177,11 @@ body {
 	var money = 1000;
 	var bett = 0;
 	console.log(num, numm);
+	if(localStorage.getItem('money') == null) {
+		console.log('no save');	
+	} else {
+		console.log('done save');		
+	}
 	function crashup(){
 		document.getElementById("money").innerHTML = money + " coins";
 		document.getElementById("sbet").innerHTML = "Bet: " + bett;

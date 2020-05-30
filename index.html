@@ -201,6 +201,7 @@ body {
 	function bets() {
 		document.getElementById("bet").innerHTML = "CASH OUT";
 		start++;
+		localStorage.setItem('money', money);
 		random = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
 		if (random <= 45) {
 			statusm = Math.floor(Math.random() * (50 - 1 + 1)) + 1;

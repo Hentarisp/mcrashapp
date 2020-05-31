@@ -167,6 +167,7 @@
     var bett = 0;
     console.log(num, numm);
     if(localStorage.getItem('money') == null) {
+        localStorage.setItem('money', money);
         console.log('no save!');
     } else {
         console.log('done save!');
